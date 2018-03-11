@@ -1,0 +1,63 @@
+MAZENA
+
+DAUCE Alexandre 
+GONCALVES Alexandra 
+NITSCHKE Elisa 
+RAPP Arthur
+SORIN Maud 
+TA Michael 
+
+
+
+
+
+
+PLAN 
+
+
+
+INTRODUCTION 
+    PRESENTATION DU JEU
+REGLES DU JEU 
+    PREMIERE ARENE: UN LABYRINTHE ETRANGE
+    DEUXIEME ARENE : UNE SALLE DE SURVIE PAS COMME LES AUTRES 
+
+
+
+
+INTRODUCTION 
+    PRESENTATION DU JEU
+
+Dans le cadre du projet de programmation nous avons créé un jeu.
+Ce jeu est composé de 2 salles principales.
+La première salle est un labyrinthe, la seconde est une salle de survie.
+Un certain nombre d’Intelligence Artificielles (IA) s’affronteront dans ces différentes salles.
+Le but du jeu est, comme beaucoup de jeu d’être le dernier survivant. Le jeu évolue dans une ambiance de maison hantée.
+
+REGLE DES DIFFERENTES ARENES 
+      PREMIERE ARENE : UN LABYRINTHE ETRANGE
+
+
+Une fois le jeu commencé, la carte du labyrinthe apparaitra.
+Toutes les IA seront disposées de façon aléatoire sur les parois de ce labyrinthe.
+Le but principal de ces IA est d’arriver au centre du labyrinthe, où se trouve un portail, le plus rapidement possible.
+En effet, seuls les 15 premiers joueurs accédant au centre pourront continuer le jeu et accéder à la salle de survie.
+Les autres se verront refuser l’accès à cette salle mystérieuse et seront définitivement éliminées 
+Cependant pour corser un peu le jeu et le rendre plus intéressant un certain nombre de mur apparaitront ou disparaitront.
+Les IA connaitront 2 tours avant quels murs apparaitra ou disparaitra.
+
+Afin que votre IA sache où sont les murs proches d’elle, les fonctions bcolor() et condition() sont à votre disposition.  
+
+    DEUXIEME ARENE : UNE SALLE DE SURVIE PAS COMME LES AUTRES 
+
+
+Dans la salle mystérieuse, autrement appelée la salle de survie, les cases constituant le sol disparaissent les unes après les autres de façon aléatoire. 
+Si un joueur se trouve sur une case qui disparait, celui-ci sera éliminé. 
+Toutes les IA sauront 2 tours avant quelle case disparaitra. Elle aura donc par conséquent 2 tours pour changer de case et éviter la mort et donc d’être éliminé.
+A la fin du jeu les joueurs seront classés en fonction de leur évolution dans le jeu. 
+Dans la première arène, les premiers à être éliminés auront 0 points. Le premier à être arrivé au centre du labyrinthe se verra attribuer un score de 15 points le 2eme un score de 14 points etc. 
+Dans la deuxième arène les derniers survivants se verront attribuer en plus de leurs points de la première arène 10 points.
+
+
+
+ 
