@@ -15,6 +15,13 @@
 
 #define SPEED 3 // vitesse de déplacement de l'IA
 
+// pour la deuxieme salle
+#define Hauteur_AreneBLOC 650
+#define Largeur_AreneBLOC 650
+#define Hauteur_Sousbloc 26
+#define Largeur_Sousbloc 26
+#define Nb_Bloc_total 625
+
 int r[2]={3,SCREEN_HEIGHT/2}; //tableau r direction : r0 = x et r1 = y
 int dir; //haut, droite, bas, gauche
 
@@ -67,11 +74,11 @@ SDL_Surface* Fond = NULL;
 //Image position
 SDL_Rect position;
 
-bool init()
+bool init(int x, int y)
 {
     SDL_Init(SDL_INIT_VIDEO);
     //Create window
-    Window = SDL_CreateWindow( "SDL MAZENA", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_SHOWN );
+    Window = SDL_CreateWindow( "SDL MAZENA", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, x, y, SDL_WINDOW_SHOWN );
     //Get window surface
     ScreenSurface = SDL_GetWindowSurface( Window );
 
@@ -214,14 +221,66 @@ bool center(int x, int y)
 }
 
 
-int arena()
+int arena() // 2e salle
 {
+
+
+    int i;
+    int j;
+    int position;
+    int *tab;
+    int position_y;
+    int position_x;
+    int jeu;
+    // On fait les comptours: les contours ne doivent pas être accessible pour le joueur sinon il meurt
+    // chaque valeur, 0 ou 1 correspondent a un object 0= sol rocher et 1= Lave (ne pas aller)
+    // On fait les colonnes
+    for (i=0 ; i<26 ; i++ ) //on fait les contours
+    {
+        tab [i]=1; // On définit 1 comme endroit a ne pas aller (lave par exemple)
+    }
+    for (i=623; i<650; i++)
+    {
+        tab [i]=1; // On définit 1 comme endroit a ne pas aller (lave par exemple)
+    }
+    // On fait les lignes
+    for (j=0 ; j<26 ; j++ ) //on fait les contours
+    {
+        tab [j]=1; // On définit 1 comme endroit a ne pas aller (lave par exemple)
+    }
+    for (j=623; j<650; j++)
+    {
+        tab [i]=1; // On définit 1 comme endroit a ne pas aller (lave par exemple)
+    }
+    //test de la map
+    while (jeu==1)
+    {
+        scanf("Entrez une coordonnée entre 0 et 25 pour l'axe des x %d", (position_x*26));
+        scanf("Entrez une coordonnée entre 0 et 25 pour l'axe des y %d", (position_y*26));
+        if (position_x < 26)
+        {
+            if (position_x < 650 ||  position_x > 623)
+            {
+                jeu==0;
+                printf("vous avez perdu");
+            }
+        }
+        if( position_y < 26)
+        {
+            if (position_y < 650 ||  position_y > 623)
+            {
+                jeu==0;
+                printf("vous avez perdu");
+            }
+        }
+    }
+
 
 }
 
 void Initarena() //arene final
 {
-    if (init())
+    if (init(Largeur_AreneBLOC,Hauteur_AreneBLOC))
     {
         printf("failed to initialize! \n");
     }
@@ -298,7 +357,7 @@ int game()
 void Initgame()
 {
      //Start up SDL and create window
-    if (init())
+    if (init(SCREEN_WIDTH,SCREEN_HEIGHT))
     {
         printf("failed to initialize! \n");
     }
@@ -328,7 +387,7 @@ void Initgame()
 
 void menu()
 {
-     if (init())
+     if (init(SCREEN_WIDTH,SCREEN_HEIGHT))
     {
         printf("failed to initialize! \n");
     }
